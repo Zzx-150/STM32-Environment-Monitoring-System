@@ -12,7 +12,8 @@ void AD_Init_DMA(void)
     
     GPIO_InitTypeDef GPIO_InitStructure;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AIN;
-    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0;
+    // 【关键修改1】：改为 GPIO_Pin_7 (也就是 PA7)
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6; 
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
     GPIO_Init(GPIOA, &GPIO_InitStructure);
     
@@ -41,7 +42,8 @@ void AD_Init_DMA(void)
     ADC_InitStructure.ADC_NbrOfChannel = 1;
     ADC_Init(ADC1, &ADC_InitStructure);
     
-    ADC_RegularChannelConfig(ADC1, ADC_Channel_0, 1, ADC_SampleTime_55Cycles5);
+    // 【关键修改2】：改为 ADC_Channel_7 (对应 PA7)
+    ADC_RegularChannelConfig(ADC1, ADC_Channel_6, 1, ADC_SampleTime_55Cycles5);
     ADC_DMACmd(ADC1, ENABLE);
     
     ADC_Cmd(ADC1, ENABLE);

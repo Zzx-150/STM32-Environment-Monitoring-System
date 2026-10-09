@@ -9,8 +9,8 @@ void data_process_init(void)
     sys_data.adc_volt = 0;
     sys_data.alarm_flag = 0;
     sys_data.run_time = 0;
-    sys_data.temp_threshold = 34.0f;
-    sys_data.volt_threshold = 3300;
+    sys_data.temp_threshold = 25.0f;
+    sys_data.volt_threshold = 2400;
 }
 
 void alarm_check(void)
